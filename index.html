@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Trisha ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;font-family:"Segoe UI",Arial,sans-serif;background:#050008;color:white}
+body{background:radial-gradient(circle at 50% 40%,#31002e 0%,#120016 40%,#030004 100%)}
+#start{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle,#35002f,#080008 70%)}
+.start-heart{font-size:80px;animation:heartbeat 1.2s infinite}
+#start h1{font-size:42px;margin:20px 0 10px;text-shadow:0 0 20px #ff1493}
+#start p{color:#ffc8e6;font-size:17px}
+.start-btn{margin-top:35px;padding:15px 38px;border:1px solid #ff69b4;border-radius:50px;background:rgba(255,20,147,.15);color:white;font-size:17px;box-shadow:0 0 25px rgba(255,20,147,.6);cursor:pointer}
+#music{display:none}
+.scene{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px}
+.scene.active{display:flex;animation:sceneIn 1.3s ease}
+@keyframes sceneIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
+.subtitle{font-size:16px;letter-spacing:5px;color:#ff9dce;text-transform:uppercase;margin-bottom:25px}
+.title{font-size:clamp(45px,12vw,110px);font-weight:700;color:#ff6fb5;text-shadow:0 0 10px #ff1493,0 0 30px #ff1493,0 0 70px #ff1493}
+.normal-title{font-size:clamp(30px,7vw,65px);margin-bottom:25px}
+.message{max-width:720px;font-size:18px;line-height:1.9;color:#ffe2f0}
+.bg-heart{position:fixed;bottom:-50px;pointer-events:none;z-index:1;animation:floatUp linear forwards}
+@keyframes floatUp{0%{transform:translateY(0) scale(.5) rotate(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-115vh) scale(1.5) rotate(360deg);opacity:0}}
+.star{position:fixed;width:3px;height:3px;background:white;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+#typing{min-height:65px}
+.photo-container{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:15px}
+.photo-card{width:180px;height:240px;padding:8px;background:#fff;box-shadow:0 0 30px rgba(255,105,180,.7);border-radius:3px;overflow:hidden}
+.photo-card img{width:100%;height:100%;object-fit:cover}
+.photo-card:nth-child(1){transform:rotate(-8deg)}
+.photo-card:nth-child(2){transform:translateY(-15px) rotate(2deg)}
+.photo-card:nth-child(3){transform:rotate(7deg)}
+.cake{position:relative;width:230px;height:220px;margin-top:20px}
+.cake-bottom{position:absolute;bottom:20px;left:15px;width:200px;height:65px;background:linear-gradient(#ff78b7,#e72c79);border-radius:12px;box-shadow:0 8px 0 #9e1452}
+.cake-middle{position:absolute;bottom:75px;left:30px;width:170px;height:55px;background:linear-gradient(#ff9ccc,#f04891);border-radius:12px}
+.cake-top{position:absolute;bottom:120px;left:50px;width:130px;height:50px;background:#ffb5d9;border-radius:50%}
+.candle{position:absolute;bottom:150px;left:107px;width:15px;height:50px;background:repeating-linear-gradient(45deg,white 0 8px,#ff5fa8 8px 16px);z-index:5}
+.flame{position:absolute;bottom:195px;left:99px;font-size:38px;animation:flame .4s infinite alternate}
+@keyframes flame{to{transform:scale(1.15) rotate(5deg)}}
+#scene7{background:radial-gradient(circle at center,#510044,#150015 45%,#020003)}
+.final-title{font-size:clamp(40px,11vw,100px);color:#ff69b4;text-shadow:0 0 15px #ff1493,0 0 40px #ff1493,0 0 100px #ff1493;animation:heartbeat 1.4s infinite}
+.final-name{font-size:clamp(55px,15vw,130px);font-weight:bold;margin-top:5px;color:#fff;text-shadow:0 0 15px #fff,0 0 35px #ff69b4,0 0 80px #ff1493}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.confetti{position:fixed;top:-20px;width:8px;height:14px;z-index:100;animation:fall 5s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.firework{position:fixed;width:5px;height:5px;border-radius:50%;z-index:50;animation:explode 1.2s ease-out forwards}
+@keyframes explode{0%{box-shadow:0 0 0 0 white;opacity:1}100%{box-shadow:0 -100px 0 #ff69b4,70px -70px 0 #ffd700,100px 0 0 #00ffff,70px 70px 0 #ff69b4,0 100px 0 #ffd700,-70px 70px 0 #00ffff,-100px 0 0 #ff69b4,-70px -70px 0 #ffd700;opacity:0}}
+@media(max-width:650px){.photo-card{width:105px;height:145px}.photo-container{gap:8px}.message{font-size:16px}}
+</style>
+</head>
+<body>
+<div id="start"><div class="start-heart">❤️</div><h1>For Trisha</h1><p>I made a little surprise for you...</p><button class="start-btn" onclick="startExperience()">Tap to Begin ✨</button></div>
+<audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
+
+<section class="scene" id="scene1"><div class="subtitle">A little surprise</div><h1 class="normal-title" id="typing"></h1><p class="message">Before you continue... turn your volume up ❤️</p></section>
+<section class="scene" id="scene2"><div class="subtitle">Today</div><h1 class="title">is special ✨</h1><p class="message">Because someone incredibly special was born today.</p></section>
+<section class="scene" id="scene3"><div class="subtitle">That someone is...</div><h1 class="title">TRISHA</h1><p class="message">The girl who makes my world brighter just by being in it. ❤️</p></section>
+<section class="scene" id="scene4"><div class="subtitle">Our memories</div><h2 class="normal-title">Little moments...</h2><div class="photo-container"><div class="photo-card"><img src="photo1.jpg"></div><div class="photo-card"><img src="photo2.jpg"></div><div class="photo-card"><img src="photo3.jpg"></div></div><p class="message" style="margin-top:25px">Every memory with you is one I'll always keep. 💕</p></section>
+<section class="scene" id="scene5"><div class="subtitle">Make a wish</div><h2 class="normal-title">It's your birthday 🎂</h2><div class="cake"><div class="flame">🔥</div><div class="candle"></div><div class="cake-top"></div><div class="cake-middle"></div><div class="cake-bottom"></div></div><p class="message">Close your eyes... make a wish. ✨</p></section>
+<section class="scene" id="scene6"><div class="subtitle">Something from me</div><h2 class="normal-title">Dear Trisha ❤️</h2><p class="message">I may not always know the perfect things to say, but I want you to know how much you mean to me.<br><br>You make ordinary days feel special. Your smile can change my entire mood, and every moment with you becomes a memory I want to keep forever.<br><br>On your birthday, I just want to wish you happiness, success, and everything your heart desires.<br><br>And selfishly... I hope I get to be part of many more birthdays with you. ❤️</p></section>
+<section class="scene" id="scene7"><div class="subtitle">One last thing...</div><div class="final-title">HAPPY BIRTHDAY</div><div class="final-name">TRISHA ❤️</div><p class="message" style="margin-top:30px">You are my favorite person, my favorite smile, and one of the most beautiful parts of my life.</p><p style="margin-top:25px;color:#ffb6d9;font-size:20px">I love you ❤️</p></section>
+
+<script>
+let scene=1,started=false,autoTimer;
+const music=document.getElementById("music");
+
+function startExperience(){
+started=true;
+document.getElementById("start").style.display="none";
+music.volume=.35;
+music.play().catch(()=>{});
+showScene(1);
+typeText();
+createStars();
+setInterval(createHeart,700);
+autoTimer=setTimeout(nextScene,7000);
+}
+
+function showScene(n){
+document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));
+document.getElementById("scene"+n).classList.add("active");
+}
+
+function nextScene(){
+if(!started||scene>=7)return;
+clearTimeout(autoTimer);
+scene++;
+showScene(scene);
+if(scene===7){
+createConfetti();
+setInterval(createFirework,900);
+}else{
+autoTimer=setTimeout(nextScene,7000);
+}
+}
+
+function typeText(){
+const text="Hey Trisha... ❤️";let index=0;
+const element=document.getElementById("typing");
+function write(){if(index<text.length){element.innerHTML+=text.charAt(index++);setTimeout(write,120)}}
+write();
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="bg-heart";
+heart.innerHTML=["❤️","💕","💗","💖","💘","💓"][Math.floor(Math.random()*6)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*30)+"px";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),10000);
+}
+
+function createStars(){
+for(let i=0;i<100;i++){
+const star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*3+"s";
+document.body.appendChild(star);
+}
+}
+
+function createConfetti(){
+for(let i=0;i<180;i++){
+const c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+c.style.background=["#ff1493","#ff69b4","#ffd700","#00ffff","#ffffff"][Math.floor(Math.random()*5)];
+c.style.animationDelay=Math.random()*3+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),8000);
+}
+}
+
+function createFirework(){
+const firework=document.createElement("div");
+firework.className="firework";
+firework.style.left=(20+Math.random()*60)+"vw";
+firework.style.top=(15+Math.random()*45)+"vh";
+document.body.appendChild(firework);
+setTimeout(()=>firework.remove(),1500);
+}
+
+document.addEventListener("click",e=>{
+if(!started||e.target.closest("#start"))return;
+if(scene<7)nextScene();
+});
+</script>
+</body>
+</html>
